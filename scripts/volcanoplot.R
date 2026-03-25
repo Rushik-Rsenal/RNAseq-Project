@@ -1,9 +1,22 @@
+library(SummarizedExperiment)
+library(DESeq2)
+library(vsn)
+library(ggplot2)
+
+library(RColorBrewer)
+library(hexbin)
+
+library(ComplexHeatmap)
+library(cowplot)
+library(ComplexHeatmap)
+library(apeglm)
+
 se <- readRDS("data/GSE96870_se.rds")
 se <- se[rowSums(assay(se, "counts")) > 5, ]
 
 # Create DESeq Data set
 dds <- DESeq2::DESeqDataSet(se,
-                            design = ~ sex + time)
+                            design = ~ sex + time + mouse)
 
 # THE FIX: Assign the result back to dds
 dds <- DESeq(dds)
@@ -15,7 +28,7 @@ resTime <- results(dds, contrast = c("time", "Day8", "Day0"))
 #1. Convert to a clean data frame (removing NAs)
 res_df <- as.data.frame(resTime)
 res_df <- res_df[!is.na(res_df$padj) & !is.na(res_df$log2FoldChange), ]
-
+View(res_df)
 # 2. Add significance coloring thresholds (FDR < 0.05 and Log2FC > 1)
 res_df$Significance <- "Not Significant"
 res_df$Significance[res_df$log2FoldChange > 1 & res_df$padj < 0.05] <- "Upregulated"
@@ -54,7 +67,7 @@ ggplot(res_df, aes(x = log2FoldChange, y = -log10(padj), color = Significance)) 
        y = "-Log10 Adjusted P-value",
        color = "Gene Status")
 
-ggsave("volcano_plot_Day8_vs_Day0.png", 
+ggsave("volcano_plot_Day8_vs_Day0_updated_design.png", 
        width = 8,        # Width in inches
        height = 6,       # Height in inches
        dpi = 300)        # dpi = 300 ensures it is high-resolution/publication quality
