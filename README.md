@@ -1,9 +1,9 @@
 ### Purpose
-Analysis of Differentially expressed genes was conducted on the RNAseq data from the cerebellum of wild-type mice since the onset of influenza. This aimed to identify the mechanism in which upper respiratory infections can worsen symptoms of autoimmune diseases.
+Upper Respiratory infections are observed to cause relapses and worsen symptoms of MS patients. However, the mechanism in which this happens has not been widely studied. It was observed in the laboratory that autoimmune-prone 2D2 mice had worsened symptoms 8 days after Influenza Infections. The mechaism in which this is caused is identifed through analysis of differentially expressed genes  in the Cerebellum and Spinal Cord of wild-type mice since the onset of influenza. This aimed to identify the mechanism in which upper respiratory infections can worsen symptoms of autoimmune diseases.
 
 
 ### Results
-Analysis of Differentially expressed genes on the wild-type mice that genes linked to glial-activation and neutrophil trafficking were upregulated in the Day 8 of influenza Infection. This suggests a potential mechanism in which upper respiratory infections can trigger relapse of MS patients. 
+Analysis of Differentially expressed genes on the wild-type mice revealed that genes linked to glial-activation and neutrophil trafficking were upregulated in the Day 8 of influenza Infection. This suggests a potential mechanism in which upper respiratory infections can trigger relapse of MS patients. 
 
 
 ### References
